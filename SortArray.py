@@ -174,21 +174,21 @@ class Array(object):
                     break
             self.__a[inner+1:outer+1] = self.__a[inner:outer]
             self.__a[inner] = temp
-        # Remove None values
+        
         self.__a = list(filter(None, self.__a))
         self.__nItems = len(self.__a)
-        unique_items = [] # lista auxiliar para almacenar elementos únicos
+        unique_items = [] 
         for i in range(1, self.__nItems):
             key_item = self.__a[i]
-            # si el elemento no está en la lista auxiliar, insertarlo en la lista ordenada y en la lista auxiliar
+           
             if key_item not in unique_items:
                 j = i - 1
                 while j >= 0 and self.__a[j] > key_item:
                     self.__a[j+1] = self.__a[j]
                     j -= 1
                 self.__a[j+1] = key_item
-                unique_items.append(key_item) # agregar elemento a la lista auxiliar
-        self.__nItems = len(unique_items) # actualizar el número de elementos en el array
-        self.__a = unique_items # reemplazar el array original con la lista de elementos únicos
+                unique_items.append(key_item) 
+        self.__nItems = len(unique_items) 
+        self.__a = unique_items 
 
  
